@@ -1,13 +1,13 @@
 package cli
 
 import (
-	"fmt"
 	"encoding/json"
+	"fmt"
 
 	"github.com/eoscanada/eos-go"
 )
 
-func GetInfo(api *eos.API){
+func GetInfo(api *eos.API) {
 	info, err := api.GetInfo()
 	if err == nil {
 		data, _ := json.MarshalIndent(info, "", "  ")

@@ -10,7 +10,7 @@ var (
 	api *eos.API
 )
 
-func init(){
+func init() {
 	rpc := "https://api.eosnewyork.io"
 	key := "5KdB3AtHrJFZez87KHAQej4ucZ7NAwN2VenB1D9fVDSMdGFq4jK"
 	api = eos.New(rpc)
@@ -19,11 +19,11 @@ func init(){
 	api.SetSigner(signer)
 }
 
-func main(){
+func main() {
 	transfer()
 }
 
-func transfer(){
+func transfer() {
 	from := eos.AN("xxxxxaccount")
 	to := eos.AN("orangeisluck")
 	quantity, _ := eos.NewEOSAssetFromString("0.0001 EOS")
@@ -32,15 +32,15 @@ func transfer(){
 	cli.Transfer(api, from, to, quantity, memo, code)
 }
 
-func buyRam(){
-	cli.BuyRam(api, eos.AN("xxxxxaccount"), eos.AN("xxxxxaccount"), 1 * 1024)
+func buyRam() {
+	cli.BuyRam(api, eos.AN("xxxxxaccount"), eos.AN("xxxxxaccount"), 1*1024)
 }
 
-func sellRam(){
-	cli.SellRam(api, eos.AN("xxxxxaccount"), 1 * 1024)
+func sellRam() {
+	cli.SellRam(api, eos.AN("xxxxxaccount"), 1*1024)
 }
 
-func delegateBW(){
+func delegateBW() {
 	from := eos.AN("xxxxxaccount")
 	receiver := eos.AN("xxxxxaccount")
 	cpuStake, _ := eos.NewAsset("0.0001 EOS")
@@ -48,7 +48,7 @@ func delegateBW(){
 	cli.DelegateBW(api, from, receiver, cpuStake, netStake, false)
 }
 
-func undelegateBW(){
+func undelegateBW() {
 	from := eos.AN("xxxxxaccount")
 	receiver := eos.AN("xxxxxaccount")
 	cpuStake, _ := eos.NewAsset("0.0001 EOS")
@@ -56,22 +56,21 @@ func undelegateBW(){
 	cli.UndelegateBW(api, from, receiver, cpuStake, netStake)
 }
 
-
-func newKeyPair(){
+func newKeyPair() {
 	cli.NewKeyPair()
 }
 
-func getCurrencyBalance(){
+func getCurrencyBalance() {
 	account := eos.AN("xxxxxaccount")
 	symbol := "EOS"
-	tokenAccount := eos.AN("eosio.token") 
-	cli.GetCurrencyBalance(api,account, symbol, tokenAccount)
+	tokenAccount := eos.AN("eosio.token")
+	cli.GetCurrencyBalance(api, account, symbol, tokenAccount)
 }
 
-func getInfo(){
+func getInfo() {
 	cli.GetInfo(api)
 }
 
-func getAccount(){
+func getAccount() {
 	cli.GetAccount(api, eos.AN("xxxxxaccount"))
 }
