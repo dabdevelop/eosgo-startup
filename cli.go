@@ -25,7 +25,7 @@ func main() {
 
 func transfer() {
 	from := eos.AN("xxxxxaccount")
-	to := eos.AN("orangeisluck")
+	to := eos.AN("yyyyyaccount")
 	quantity, _ := eos.NewEOSAssetFromString("0.0001 EOS")
 	memo := ""
 	code := eos.AN("eosio.token")
